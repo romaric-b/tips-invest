@@ -9,9 +9,30 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\EntryForm;
 
 class SiteController extends Controller
 {
+	public function actionEntry()
+    {
+		$model = new EntryForm;
+		
+		
+		if ($model->load(Yii::$app->request->post()) && $model->validate()) 
+		{
+            // données valides reçues dans $model
+
+            // faire quelque chose de significatif ici avec $model ...
+
+            return $this->render('entry-confirm', ['model' => $model]);
+		}
+		else
+		{
+            // soit la page est affichée au début soit il y a des erreurs de validation
+            return $this->render('entry', ['model' => $model]);
+        }
+    }
+
     /**
      * {@inheritdoc}
      */
