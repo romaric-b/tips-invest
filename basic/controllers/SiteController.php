@@ -20,6 +20,7 @@ class SiteController extends Controller
 		
 		if ($model->load(Yii::$app->request->post()) && $model->validate()) 
 		{
+
             // données valides reçues dans $model
 
             // faire quelque chose de significatif ici avec $model ...
@@ -75,13 +76,6 @@ class SiteController extends Controller
         ];
 	}
 	
-
-	// info : Yii utilise le préfixe action pour faire la différence entre des méthodes actions et des méthodes non-actions dans une classe contrôleur. Le nom suivant le préfixe action est associé à l'ID de l'action
-	public function actionDire($message = 'Hello')
-	{
-		return $this->render('dire', ['message' => $message]);
-	}
-
     /**
      * Displays homepage.
      *

@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Country;
+use app\models\Comment;
 
 /**
- * CountrySearch represents the model behind the search form of `app\models\Country`.
+ * CommentSearch represents the model behind the search form of `app\models\Comment`.
  */
-class CountrySearch extends Country
+class CommentSearch extends Comment
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class CountrySearch extends Country
     public function rules()
     {
         return [
-            [['code', 'name'], 'safe'],
-            [['population'], 'integer'],
+            [['c_id', 'c_post_fk', 'c_author_fk', 'c_vote'], 'integer'],
+            [['c_reporting', 'c_status', 'c_datetime', 'c_title', 'c_content'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class CountrySearch extends Country
      */
     public function search($params)
     {
-        $query = Country::find();
+        $query = Comment::find();
 
         // add conditions that should always apply here
 
@@ -58,11 +58,17 @@ class CountrySearch extends Country
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'population' => $this->population,
+            'c_id' => $this->c_id,
+            'c_post_fk' => $this->c_post_fk,
+            'c_author_fk' => $this->c_author_fk,
+            'c_datetime' => $this->c_datetime,
+            'c_vote' => $this->c_vote,
         ]);
 
-        $query->andFilterWhere(['like', 'code', $this->code])
-            ->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'c_reporting', $this->c_reporting])
+            ->andFilterWhere(['like', 'c_status', $this->c_status])
+            ->andFilterWhere(['like', 'c_title', $this->c_title])
+            ->andFilterWhere(['like', 'c_content', $this->c_content]);
 
         return $dataProvider;
     }
