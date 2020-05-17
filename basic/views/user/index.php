@@ -11,7 +11,7 @@ $this->title = 'Users';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
-
+	<!--TODO SERA UTILISE COMME DASHBOARD BACKOFFICE DES MEMBRES POUR LA MODERATION-->
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>

@@ -12,6 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="comment-index">
 
+<!--TODO SERA UTILISE COMME DASHBOARD BACKOFFICE DES COMMENTAIRES POUR LA MODERATION-->
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>

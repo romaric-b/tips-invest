@@ -123,5 +123,22 @@ class PostController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
-    }
+	}
+	
+
+	/***********************************
+	 * FontOffice Read All action
+	 **********************************/
+	public function actionListPosts($condition)
+	{
+		//return json_encode($condition);
+		
+		var_dump($condition); //rentre pas 
+		return $this->render('category', [
+            'model' => Post::findAll(['p_status' => $condition]),
+		]);
+		
+        throw new NotFoundHttpException('The requested page does not exist.');
+		
+	}
 }

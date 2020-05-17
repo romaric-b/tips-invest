@@ -11,7 +11,7 @@ $this->title = 'Posts';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="post-index">
-
+	<!--TODO SERA UTILISE COMME DASHBOARD BACKOFFICE DES ARTICLES POUR LA MODERATION-->
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
